@@ -1,3 +1,10 @@
+param([string]$UserId)
+
+if ([string]::IsNullOrEmpty($userId)) {
+    Write-Warning "Requires Brewtoad User Identifier. Found in URL of profile page, e.g.: https://www.brewtoad.com/users/38089"
+    exit 1
+}
+
 $headers = @{
     'User-Agent'      = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0'
     'Accept'          = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
@@ -60,4 +67,4 @@ function Write-UserRecipes([Parameter(ValueFromPipeline)][UserRecipes]$UserRecip
     }
 }
 
-Get-UserRecipes -UserId 38089 | Write-UserRecipes
+Get-UserRecipes -UserId $UserId | Write-UserRecipes
