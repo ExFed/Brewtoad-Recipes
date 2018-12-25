@@ -26,7 +26,7 @@ filter Get-UserRecipesSummary([Parameter(ValueFromPipeline)][string]$userId) {
 
 class Recipe {
     [string]$Name
-    [string]$BeerXml
+    [xml]$BeerXml
 }
 
 filter Get-Recipe([Parameter(ValueFromPipeline)][string]$name) {
