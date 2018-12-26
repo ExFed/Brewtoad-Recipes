@@ -49,7 +49,7 @@ function Write-Recipe([Parameter(ValueFromPipeline)][Recipe]$Recipe, [string]$Ta
         }
     }
     process {
-        $Recipe.BeerXml.OuterXml | Out-File -FilePath ".\$TargetDir\$($Recipe.Name).xml"
+        $Recipe.BeerXml.OuterXml | Out-File -FilePath ".\$TargetDir\$($Recipe.Name).xml" -Encoding utf8
     }
 }
 
